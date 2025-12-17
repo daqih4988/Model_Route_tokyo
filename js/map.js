@@ -11,14 +11,19 @@ function initMap(lat, lng) {
   }).addTo(map);
 
   userMarker = L.marker([lat, lng]).addTo(map);
+
+  //マップ移動でfollow = falseで追従off
+  map.on('dragstart zoomstart', () => {
+    follow = false;
+  });
 }
+
 
 function updateUserPosition(lat, lng) {
   userMarker.setLatLng([lat, lng]);
+  //ボタン押してfollow = trueで追従no
   if (follow) {
-    map.on('dragstart zoomstart', () => {
-      follow = false;
-    });
+    map.setView([lat, lng]);
   }
 }
 

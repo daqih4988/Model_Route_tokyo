@@ -47,13 +47,6 @@ navigator.geolocation.watchPosition(
   { enableHighAccuracy: true }
 );
 
-// 追従ボタン(古いほう)
-document.getElementById("followBtn").onclick = () => {
-  follow = !follow;
-  document.getElementById("followBtn").textContent =
-    "追従: " + (follow ? "ON" : "OFF");
-};
-
 // 現在位置に戻る
 document.getElementById("backToMeBtn").onclick = () => {
   if (!userMarker) return;
